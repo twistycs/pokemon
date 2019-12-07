@@ -1,0 +1,21 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <h3>Sign In to Pokemon Trainer Account</h3>
+    <div class="form-group">
+        <label for="userName" class="control-label">Username</label>
+        <input type="text" class="form-control" formControlName="userName" id="userName" name="userName"
+            placeholder="Username" required [ngClass]="{'is-invalid' : invalidUserName()}">
+        <p *ngIf="invalidUserName()" id="userName_error" class="text-danger">Invalid Username.</p>
+    </div>
+    <div class="form-group has-error">
+        <label for="password" class="control-label">Password</label>
+        <input type="text" class="form-control" formControlName="password" id="password" name="password"
+            placeholder="Password" required [ngClass]="{'is-invalid' : invalidPassword()}">
+        <p *ngIf="invalidPassword()" id="password" class="text-danger">Invalid Password.</p>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Sign In</button>
+    </div>
+    <div class="form-group">
+        <a href="signup">Don't have an account?</a>
+    </div>
+</form>
