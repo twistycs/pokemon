@@ -1,15 +1,15 @@
 //Install express server
-import express, { static } from 'express';
-import { join } from 'path';
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(static('./dist/pokemon'));
+app.use(express.static('./dist/pokemon'));
 
 app.get('/*', function (req, res) {
 
-    res.sendFile(join(__dirname, '/dist/pokemon/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/pokemon/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
