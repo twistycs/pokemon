@@ -24,7 +24,7 @@
     "@angular/router": "~8.2.14",
     "bootstrap": "^4.4.1",
     "enhanced-resolve": "^4.1.1",
-    "express": "*",
+    "express": "^4.17.1",
     "i": "^0.3.6",
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
