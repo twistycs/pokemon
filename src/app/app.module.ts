@@ -7,6 +7,14 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { LoginComponent } from './login/login.component';
 import { RegisterAccountComponent } from './register-account/register-account.component';
+import { PokedexsComponent } from './pokedexs/pokedexs.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { UserService } from './service/user.service';
+import { LogInService } from './service/login.service';
+
+
 
 const routes: Routes = [
   {
@@ -16,6 +24,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: RegisterAccountComponent
+  },
+  {
+    path: 'pokedexs',
+    component: PokedexsComponent
   }
 ]
 
@@ -23,15 +35,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterAccountComponent
+    RegisterAccountComponent,
+    PokedexsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder, UserService, LogInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

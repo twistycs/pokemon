@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
+import { error } from 'util';
 
 
 @Component({
@@ -12,7 +15,7 @@ export class RegisterAccountComponent implements OnInit {
   submiited = false;
   registered = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -31,7 +34,20 @@ export class RegisterAccountComponent implements OnInit {
       return;
     }
     else {
-      console.log("not required !!!!");
+      const data = this.registerForm.value;
+      this.userService.addUser(data).subscribe((data: any) => {
+        console.log(data);
+        if (data.status == 200) {
+          this.router.navigate(['/']);
+        } else {
+          alert(data.message);
+        }
+
+      }),
+        (err: any) => {
+          console.log(err.message);
+        }
+
       this.registered = true;
     }
   }
