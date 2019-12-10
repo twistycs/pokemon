@@ -9,11 +9,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterAccountComponent } from './register-account/register-account.component';
 import { PokedexsComponent } from './pokedexs/pokedexs.component';
 import { PokedexsDetailsComponent } from './pokedexs-details/pokedexs-details.component';
+import { PokemonsComponent } from './pokemons/pokemons.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './service/user.service';
 import { LogInService } from './service/login.service';
+import { PokemonsService } from './service/pokemons.service';
 
 
 
@@ -33,6 +35,10 @@ const routes: Routes = [
   {
     path: 'pokedexs-details/:id',
     component: PokedexsDetailsComponent
+  },
+  {
+    path: 'pokemons/:id',
+    component: PokemonsComponent
   }
 ]
 
@@ -42,7 +48,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterAccountComponent,
     PokedexsComponent,
-    PokedexsDetailsComponent
+    PokedexsDetailsComponent,
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FormBuilder, UserService, LogInService],
+  providers: [FormBuilder, UserService, LogInService, PokemonsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

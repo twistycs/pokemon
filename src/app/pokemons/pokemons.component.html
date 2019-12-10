@@ -1,0 +1,28 @@
+<a href='/pokedexs-details/{{id}}'>Back</a>
+
+<h1>Add Pokemon to Pokedex</h1>
+
+<input type="text" placeholder="Search Pokemons">
+
+<ul>
+    <li *ngFor="let pokemons of listPokemons">
+        <div class="pokemon-list">
+            <div class="image">
+                <img src="{{pokemons.imageUrl}}" alt="Turtwig">
+            </div>
+            <div class="detail">
+                <h1>{{pokemons.name}}</h1>
+                <p> Type : <span>{{pokemons.type}}</span></p>
+                <p> HP : <span>{{pokemons.hp}}</span></p>
+                <p> ATK : <span>{{pokemons.attacks.length*50}} </span></p>
+                <div *ngIf="pokemons.resistances !== undefined ; else notShow">
+                    <p> RES :
+                        <span>{{pokemons.resistances.length*20}}</span></p>
+                </div>
+                <ng-template #notShow>
+                    <p> RES : <span>0</span></p>
+                </ng-template>
+            </div>
+        </div>
+    </li>
+</ul>
