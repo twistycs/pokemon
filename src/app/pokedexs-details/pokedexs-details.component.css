@@ -1,0 +1,13 @@
+.pokemon-detail{
+    display: flex;
+    padding: 30px;
+    height: 700px;
+}
+
+.detail{
+    padding-left: 30px;
+}
+
+.image{
+    flex-grow : 1;
+}

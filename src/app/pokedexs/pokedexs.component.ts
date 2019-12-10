@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { UserService } from '../service/user.service'
 
 @Component({
   selector: 'app-pokedexs',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
+  userList = [];
   ngOnInit() {
+    this.userService.searchUser().subscribe((data: any) => {
+      if (data.status == 200) {
+        this.userList = data.listUser;
+        //console.log(userList);
+      }
+
+
+    })
   }
 
 }

@@ -8,6 +8,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from './login/login.component';
 import { RegisterAccountComponent } from './register-account/register-account.component';
 import { PokedexsComponent } from './pokedexs/pokedexs.component';
+import { PokedexsDetailsComponent } from './pokedexs-details/pokedexs-details.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'pokedexs',
     component: PokedexsComponent
+  },
+  {
+    path: 'pokedexs-details/:id',
+    component: PokedexsDetailsComponent
   }
 ]
 
@@ -36,7 +41,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterAccountComponent,
-    PokedexsComponent
+    PokedexsComponent,
+    PokedexsDetailsComponent
   ],
   imports: [
     BrowserModule,

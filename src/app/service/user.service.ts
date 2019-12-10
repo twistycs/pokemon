@@ -11,4 +11,8 @@ export class UserService {
     addUser(data) {
         return this.http.post(environment.url + '/user/insert', data);
     }
+
+    searchUser() {
+        return this.http.post(environment.url + '/user/searchAll', '');
+    }
 }

@@ -1,1 +1,6 @@
-<p>pokedexs works!</p>
+<h1>Pokedexs</h1>
+<ul>
+    <li *ngFor="let user of userList">
+        <a href="/pokedexs-details/{{user._id}}">{{user.userName}}</a>
+    </li>
+</ul>
