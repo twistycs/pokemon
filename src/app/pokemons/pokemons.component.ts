@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonsService } from './../service/pokemons.service';
-
+import { TrainerService } from '../service/trainer.service'
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
@@ -10,7 +10,7 @@ import { PokemonsService } from './../service/pokemons.service';
 export class PokemonsComponent implements OnInit {
   public id: String;
   listPokemons = [];
-  constructor(private router: ActivatedRoute, private pokemonsService: PokemonsService) { }
+  constructor(private router: ActivatedRoute, private pokemonsService: PokemonsService, private trainerService: TrainerService) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.paramMap.get("id");
@@ -21,4 +21,13 @@ export class PokemonsComponent implements OnInit {
     console.log(this.listPokemons);
   }
 
+  addPokemonBtn(idPokemon, idUser) {
+    const data = {
+      "fkUser": idUser,
+      "fkPokemon": idPokemon
+    }
+    this.trainerService.addTrainer(data).subscribe((data: any) => {
+      console.log(data);
+    })
+  }
 }

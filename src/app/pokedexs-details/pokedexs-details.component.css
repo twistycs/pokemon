@@ -1,11 +1,16 @@
-.pokemon-detail{
+.trainer-pokemon{
     display: flex;
     padding: 30px;
-
+    background-color: gainsboro;
 }
 
-.detail{
-    padding-left: 30px;
+li{
+    padding:10px;
+}
+
+.trainer-pokemon-detail{
+    flex-grow: 5;
+    padding-left: 20px;
 }
 
 .image{

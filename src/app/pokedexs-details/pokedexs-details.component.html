@@ -5,42 +5,23 @@
 <a href="/pokemons/{{id}}">Add Pokemon</a>
 
 <ul>
-    <li>
-        <div class="pokemon-detail">
+    <li *ngFor="let trainer of listTrainer">
+        <div class="trainer-pokemon">
             <div class="image">
-                <img src="https://images.pokemontcg.io/pop9/17.png" alt="Turtwig">
+                <img src="{{trainer.result.imageUrl}}" alt="Turtwig">
             </div>
-            <div class="detail">
-                <p> Type : <span>Pshychic</span></p>
-                <p> HP : <span>110</span></p>
-                <p> ATK : <span>50</span></p>
-                <p> RES : <span>0</span></p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="pokemon-detail">
-            <div class="image">
-                <img src="https://images.pokemontcg.io/pop9/17.png" alt="Turtwig">
-            </div>
-            <div class="detail">
-                <p> Type : <span>Pshychic</span></p>
-                <p> HP : <span>110</span></p>
-                <p> ATK : <span>50</span></p>
-                <p> RES : <span>0</span></p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="pokemon-detail">
-            <div class="image">
-                <img src="https://images.pokemontcg.io/pop9/17.png" alt="Turtwig">
-            </div>
-            <div class="detail">
-                <p> Type : <span>Pshychic</span></p>
-                <p> HP : <span>110</span></p>
-                <p> ATK : <span>50</span></p>
-                <p> RES : <span>0</span></p>
+            <div class="trainer-pokemon-detail">
+                <h1>{{trainer.result.name}}</h1>
+                <p> Type : <span>{{trainer.result.type}}</span></p>
+                <p> HP : <span>{{trainer.result.hp}}</span></p>
+                <p> ATK : <span>{{trainer.result.attacks.length*50}} </span></p>
+                <div *ngIf="trainer.result.resistances !== undefined ; else notShow">
+                    <p> RES :
+                        <span>{{trainer.result.resistances.length*20}}</span></p>
+                </div>
+                <ng-template #notShow>
+                    <p> RES : <span>0</span></p>
+                </ng-template>
             </div>
         </div>
     </li>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TrainerService } from '../service/trainer.service';
 
 @Component({
   selector: 'app-pokedexs-details',
@@ -9,10 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 export class PokedexsDetailsComponent implements OnInit {
 
   private id: String;
-  constructor(private router: ActivatedRoute) { }
+  private listTrainer = [];
+  constructor(private router: ActivatedRoute, private trainerService: TrainerService) { }
 
   ngOnInit() {
     this.id = this.router.snapshot.paramMap.get("id");
+    this.trainerService.searchTrainer(this.id).subscribe((data: any) => {
+      this.listTrainer = data;
+      console.log(this.listTrainer);
+    });
   }
 
 }

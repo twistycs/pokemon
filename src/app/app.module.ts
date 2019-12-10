@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './service/user.service';
 import { LogInService } from './service/login.service';
 import { PokemonsService } from './service/pokemons.service';
-
+import { TrainerService } from './service/trainer.service';
 
 
 const routes: Routes = [
@@ -58,7 +58,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [FormBuilder, UserService, LogInService, PokemonsService],
+  providers: [FormBuilder, UserService, LogInService, PokemonsService, TrainerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
