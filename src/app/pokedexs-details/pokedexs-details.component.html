@@ -2,7 +2,7 @@
 
 <h1>Pokedex</h1>
 
-<a href="/pokemons/{{id}}">Add Pokemon</a>
+<div *ngIf="userName === historyUserName"><a href="/pokemons/{{id}}">Add Pokemon</a></div>
 
 <ul>
     <li *ngFor="let trainer of listTrainer">

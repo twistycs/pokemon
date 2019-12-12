@@ -24,19 +24,20 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submiited = true;
     if (this.userForm.invalid) {
-
-      console.log("required !!!!");
       return;
     }
     else {
-      console.log("not required !!!!");
-      console.log(this.userForm.value);
       this.logInService.login(this.userForm.value).subscribe((data: any) => {
         console.log(data);
         if (data.status == 200) {
+          localStorage.setItem('token', data.token);
           this.router.navigate(['/pokedexs']);
         }
-      });
+      },
+        err => {
+          console.log(err);
+        }
+      );
       this.registered = true;
     }
   }

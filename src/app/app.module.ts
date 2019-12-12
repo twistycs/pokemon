@@ -33,7 +33,7 @@ const routes: Routes = [
     component: PokedexsComponent
   },
   {
-    path: 'pokedexs-details/:id',
+    path: 'pokedexs-details/:id/:userName',
     component: PokedexsDetailsComponent
   },
   {
