@@ -37,7 +37,7 @@ const routes: Routes = [
     component: PokedexsDetailsComponent
   },
   {
-    path: 'pokemons/:id',
+    path: 'pokemons/:id/:userName',
     component: PokemonsComponent
   }
 ]

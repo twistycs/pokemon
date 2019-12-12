@@ -1,8 +1,8 @@
-<a href="/pokedexs">Back</a>
+<a href="/pokedexs/">Back</a>
 
 <h1>Pokedex</h1>
 
-<div *ngIf="userName === historyUserName"><a href="/pokemons/{{id}}">Add Pokemon</a></div>
+<div *ngIf="userName === historyUserName"><a href="/pokemons/{{id}}/{{historyUserName}}">Add Pokemon</a></div>
 
 <ul>
     <li *ngFor="let trainer of listTrainer">
