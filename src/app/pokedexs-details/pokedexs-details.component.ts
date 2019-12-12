@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class PokedexsDetailsComponent implements OnInit {
 
-  private id: String;
-  private historyUserName: String = "";
-  private listTrainer = [];
   constructor(private router: ActivatedRoute, private loginService: LogInService, private trainerService: TrainerService, private routers: Router) { }
 
+  id = "";
+  historyUserName = "";
+  listTrainer = []
   userName = "";
   ngOnInit() {
     this.loginService.getUserName().subscribe(
