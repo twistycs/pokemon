@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "ajv": "^6.10.2",
+    "ajv": "^6.12.3",
     "angular-jwt": "^0.1.11",
     "bootstrap": "^4.4.1",
     "enhanced-resolve": "^4.1.1",
